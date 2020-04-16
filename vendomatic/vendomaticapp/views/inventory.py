@@ -7,4 +7,13 @@ def inventory_list(request):
     if request.method == 'GET':
         beverage = Beverage.objects.all()
         transaction = Transaction.objects.all()
-    return render(request)
+
+
+        template = 'inventory.html'
+        context = {
+            'beverage': beverage,
+            'transaction': transaction
+        }
+        print(request)
+
+        return render(request, template, context)
